@@ -4,11 +4,13 @@ export interface NavLinkProps {
 }
 
 export interface ButtonProps {
-  bgColor: string;
-  textColor: string;
+  styleProps: React.CSSProperties;
+  classProps: string;
   title: string;
+  href: string;
 }
 
 export interface CustomButtonProps {
   title: string;
+  href: string;
 }

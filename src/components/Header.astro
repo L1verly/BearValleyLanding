@@ -1,10 +1,17 @@
 ---
 import NavLink from './NavLink.tsx'
+import MenuToggle from './MenuToggle.tsx'
 ---
 
-<header class="flex items-center justify-center sm:items-stretch">
+<header class="flex items-center justify-center max-sm:justify-end max-sm:mr-5 sm:items-stretch">
     <div class="mt-6">
-        <ul class="flex flex-row gap-12">
+        <div class="flex sm:hidden">
+            <!-- Mobile menu button-->
+            <button type="button" aria-controls="mobile-menu" aria-expanded="false" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset">
+            <!-- <span class="sr-only">Open main menu</span> -->
+            <MenuToggle />
+        </div>
+        <ul class="flex flex-row gap-12 max-sm:hidden">
             <NavLink title="Головна" link="#main"/>
             <NavLink title="Новини" link="#news"/>
             <NavLink title="Наша команда" link="#team"/>

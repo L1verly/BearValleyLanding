@@ -1,16 +1,16 @@
-import React from "react";
 import { type ButtonProps } from "../types/types";
 
 const Button = (props: ButtonProps) => {
   return (
     <a
+      href={props.href}
       className={
-        props.textColor +
+        props.classProps +
         " " +
-        `hover:!bg-green-700 transition-all duration-200 hover:scale-105 
-        font-medium rounded-lg text-sm px-5 py-3 me-3 mb-2 focus:outline-none focus:ring-4`
+        `transition-all duration-200 hover:scale-105 truncate
+        font-medium rounded-lg text-sm px-7 py-4 me-2 mb-2`
       }
-      style={{ backgroundColor: props.bgColor }}
+      style={{ ...props.styleProps }}
     >
       <span className="select-none">{props.title}</span>
     </a>
