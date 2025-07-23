@@ -1,10 +1,9 @@
 import Button from "./Button";
 import { type CustomButtonProps } from "../types/types";
 
-const classStyles = "text-white hover:";
-// const colorBg = "hover:bg-blue-800 focus:ring-blue-300";
+const classStyles = "text-white";
 const styles = {
-  backgroundColor: "#046001",
+  backgroundColor: "var(--color-accent)",
 };
 
 const PrimaryButton = (props: CustomButtonProps) => (

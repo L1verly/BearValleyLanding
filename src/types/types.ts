@@ -1,6 +1,7 @@
 export interface NavLinkProps {
   title: string;
   link: string;
+  className?: string;
 }
 
 export interface ButtonProps {

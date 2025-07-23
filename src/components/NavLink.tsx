@@ -1,11 +1,13 @@
 import React from "react";
 import type { NavLinkProps } from "../types/types";
 
-function NavLink({ title, link }: NavLinkProps) {
+function NavLink({ title, link, className = "" }: NavLinkProps) {
   return (
-    <li>
-      <a href={link}>{title}</a>
-    </li>
+    <div>
+      <a href={link} className={className}>
+        {title}
+      </a>
+    </div>
   );
 }
 

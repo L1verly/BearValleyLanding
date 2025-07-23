@@ -3,9 +3,9 @@ import { type CustomButtonProps } from "../types/types";
 
 const classStyles = "text-black";
 const styles = {
-  border: "solid 1px #046001",
+  border: "solid 1px var(--color-accent)",
   hover: {
-    background: "#046001",
+    background: "var(--color-accent)",
   },
 };
 // "bg-blue-700 hover:bg-blue-800 focus:ring-blue-300";
