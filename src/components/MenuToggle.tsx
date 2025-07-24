@@ -1,23 +1,24 @@
 import { useEffect, useState, useRef } from "react";
 import NavLink from "./NavLink";
-import { HamburgerIcon, ClosedIcon } from "./Svg.tsx";
+import { HamburgerIcon, CloseIcon } from "./Svg.tsx";
 type Props = {};
 
 const MenuToggle = (props: Props) => {
   // State to manage the open/closed state of the menu
   const [isOpen, setIsOpen] = useState(false);
-
+  const [animation, setAnimation] = useState("animate-slide-down");
+  // State to manage the icon displayed in the button
+  // This is needed because on calling hide() function there is a delay, thus isOpen can't be used for changing the icon
+  const [icon, setIcon] = useState(<HamburgerIcon />);
   const handleClick = () => {
-    console.log("Button clicked, isClosed:", isOpen);
-    setIsOpen(!isOpen);
+    isOpen ? hide(1000) : show();
   };
   const menuRef = useRef<HTMLDivElement | null>(null);
-  const mobileMenuRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
+        hide(1);
       }
     };
 
@@ -31,6 +32,21 @@ const MenuToggle = (props: Props) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isOpen]);
+  const show = () => {
+    setIcon(<CloseIcon />);
+
+    setAnimation("animate-slide-down");
+    setIsOpen(!isOpen);
+  };
+  const hide = async (ms: number) => {
+    setIcon(<HamburgerIcon />);
+    // Sets a temporary class
+    setAnimation("animate-slide-up");
+    // Waits for n milliseconds
+    await new Promise((r) => setTimeout(r, ms));
+    // Hides the element
+    setIsOpen(!isOpen);
+  };
 
   return (
     <nav
@@ -43,7 +59,7 @@ const MenuToggle = (props: Props) => {
       text-gray-400 hover:bg-green-700 hover:text-white focus:ring-2 
       focus:ring-white focus:outline-hidden focus:ring-inset"
       >
-        {!isOpen ? <HamburgerIcon /> : <ClosedIcon />}
+        {icon}
       </button>
       <div className={"hidden sm:block"}>
         <div className="flex gap-10">
@@ -72,13 +88,10 @@ const MenuToggle = (props: Props) => {
       {isOpen && (
         <div
           id="mobile-menu"
-          ref={mobileMenuRef}
           className="absolute left-0 top-14 sm:hidden w-full"
         >
           <div
-            className={
-              "bg-white drop-shadow-sm flex flex-col items-center gap-4 py-4 my-2 animate-slide-down"
-            }
+            className={`bg-white drop-shadow-sm flex flex-col items-center gap-4 py-4 my-2 ${animation}`}
           >
             <NavLink
               title="Головна"

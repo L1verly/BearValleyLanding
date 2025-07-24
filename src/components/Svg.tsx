@@ -1,11 +1,10 @@
 export const ArrowLeft = () => (
   <svg
-    width="800px"
-    height="800px"
     viewBox="-4.5 0 20 20"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
+    // className={`block size-${props.size}`}
   >
     <title>arrow_left [#335]</title>
     <desc>Created with Sketch.</desc>
@@ -35,12 +34,11 @@ export const ArrowLeft = () => (
 
 export const ArrowRight = () => (
   <svg
-    width="800px"
-    height="800px"
     viewBox="-4.5 0 20 20"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
+    // className={`block size-${props.size}`}
   >
     <title>arrow_right [#336]</title>
     <desc>Created with Sketch.</desc>
@@ -84,7 +82,7 @@ export const HamburgerIcon = () => (
     />
   </svg>
 );
-export const ClosedIcon = () => (
+export const CloseIcon = () => (
   <svg
     viewBox="0 0 24 24"
     fill="none"

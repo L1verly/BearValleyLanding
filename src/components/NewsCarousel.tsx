@@ -1,16 +1,19 @@
 import { useState, useEffect } from "react";
 import { ArrowRight, ArrowLeft } from "./Svg.tsx";
+import { type News } from "../types/types.ts";
 
-export default function NewsCarousel({ news }) {
+export default function NewsCarousel(props: { news: News }) {
   const [current, setCurrent] = useState(0);
   const visibleCount = 3;
+  const news = props.news;
   const total = news.length;
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % total);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [total]);
+  console.log(`Props: ${props},News: ${news}, News length: ${total}`);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrent((prev) => (prev + 1) % total);
+  //   }, 4000);
+  //   return () => clearInterval(interval);
+  // }, [total]);
 
   function prev() {
     setCurrent((prev) => (prev - 1 + total) % total);
@@ -23,18 +26,23 @@ export default function NewsCarousel({ news }) {
   const displayNews = news.concat(news.slice(0, visibleCount));
   const styles = { transform: `translateX(-${(100 / 3) * current}%)` };
   return (
-    <div className="flex">
-      <div className="flex flex-row" style={styles}>
-        <button className="carousel-btn" onClick={prev}>
+    <div className="flex items-center">
+      <button className="carousel-btn" onClick={prev}>
+        <div className="p-2">
           <ArrowLeft />
-        </button>
+        </div>
+      </button>
+      <div
+        className="flex flex-row w-full overflow-x-hidden animate-slide-left"
+        style={styles}
+      >
         {displayNews.map((item, idx) => (
-          <div className="news-item" style={{ minWidth: "30%" }} key={idx}>
-            <img
-              //   class="news-image max-w-40"
-              src={item.image}
-              alt={item.title}
-            />
+          <div
+            className="news-item max-w-1/3"
+            // style={{ minWidth: "30%" }}
+            key={idx}
+          >
+            <img src={item.image.src} alt={item.title} />
             <div className="news-content">
               <div className="news-title">{item.title}</div>
               <div className="news-description">{item.description}</div>
@@ -43,7 +51,9 @@ export default function NewsCarousel({ news }) {
         ))}
       </div>
       <button className="carousel-btn" onClick={next}>
-        <ArrowRight />
+        <div className="p-2">
+          <ArrowRight />
+        </div>
       </button>
     </div>
   );

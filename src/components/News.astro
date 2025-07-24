@@ -1,35 +1,33 @@
 ---
 // /src/components/News.astro
 import NewsCarousel from './NewsCarousel.jsx';
-import Image from "astro:assets";
-import myImage from '../assets/images/news.jpg'
+import myImage from '../../public/images/news.jpg'
 // Example news data
 const news = [
     {
-        image: '../public/images/news.jpg',
+        image: myImage,
         title: 'Bear Valley Bible Institute Expands',
         description: 'Bear Valley Bible Institute opens new campus in Africa to reach more students.',
     },
     {
-        image: './assets/images/news.jpg',
+        image: myImage,
         title: 'Graduation Ceremony 2024',
         description: 'Celebrating the achievements of our latest graduates at Bear Valley.',
     },
     {
-        image: './assets/images/news.jpg',
+        image: myImage,
         title: 'New Online Courses',
         description: 'Bear Valley now offers a range of online courses for remote learners.',
     },
     {
-        image: './assets/images/news.jpg',
+        image: myImage,
         title: 'Mission Trip Success',
         description: 'Students return from a successful mission trip with inspiring stories.',
     },
 ];
 ---
 
-<div>
-    <NewsCarousel client:load news={news}>
-        <!-- <Image /> -->
+<section class="py-10">
+    <NewsCarousel client:load news={news} />
     </NewsCarousel>
 </div>

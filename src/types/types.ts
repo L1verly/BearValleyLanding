@@ -15,3 +15,11 @@ export interface CustomButtonProps {
   title: string;
   href: string;
 }
+
+export interface NewsItem {
+  image: ImageMetadata;
+  title: string;
+  description: string;
+}
+
+export type News = NewsItem[];
