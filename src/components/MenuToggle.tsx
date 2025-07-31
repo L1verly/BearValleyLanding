@@ -11,14 +11,14 @@ const MenuToggle = (props: Props) => {
   // This is needed because on calling hide() function there is a delay, thus isOpen can't be used for changing the icon
   const [icon, setIcon] = useState(<HamburgerIcon />);
   const handleClick = () => {
-    isOpen ? hide(1000) : show();
+    isOpen ? hide(200) : show();
   };
   const menuRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        hide(1);
+        hide(200);
       }
     };
 
@@ -48,6 +48,13 @@ const MenuToggle = (props: Props) => {
     setIsOpen(!isOpen);
   };
 
+  const navButtons = [
+    { title: "Головна", link: "#main" },
+    { title: "Новини", link: "#news" },
+    { title: "Наша команда", link: "#team" },
+    { title: "Пожертвувати", link: "#donate" },
+  ];
+
   return (
     <nav
       className="relative flex w-full h-16 items-center justify-center max-sm:justify-end"
@@ -63,26 +70,14 @@ const MenuToggle = (props: Props) => {
       </button>
       <div className={"hidden sm:block"}>
         <div className="flex gap-10">
-          <NavLink
-            title="Головна"
-            link="#main"
-            className="rounded-md px-4 py-2 hover:bg-green-800 hover:text-white"
-          />
-          <NavLink
-            title="Новини"
-            link="#news"
-            className="rounded-md px-4 py-2 hover:bg-green-800 hover:text-white"
-          />
-          <NavLink
-            title="Наша команда"
-            link="#team"
-            className="rounded-md px-4 py-2 hover:bg-green-800 hover:text-white"
-          />
-          <NavLink
-            title="Пожертвувати"
-            link="#donate"
-            className="rounded-md px-4 py-2 hover:bg-green-800 hover:text-white"
-          />
+          {navButtons.map((button, i) => (
+            <NavLink
+              key={i}
+              title={button.title}
+              link={button.link}
+              className="rounded-md px-4 py-2 hover:bg-green-800 hover:text-white"
+            />
+          ))}
         </div>
       </div>
       {isOpen && (
@@ -93,26 +88,19 @@ const MenuToggle = (props: Props) => {
           <div
             className={`bg-white drop-shadow-sm flex flex-col items-center gap-4 py-4 my-2 ${animation}`}
           >
-            <NavLink
+            {navButtons.map((button, i) => (
+              <NavLink
+                key={i}
+                title={button.title}
+                link={button.link}
+                className="block rounded-md px-3 py-2 text-base font-medium hover:bg-green-800 hover:text-white"
+              />
+            ))}
+            {/* <NavLink
               title="Головна"
               link="#main"
               className="block rounded-md bg-green-800 px-3 py-2 text-base font-medium text-white"
-            />
-            <NavLink
-              title="Новини"
-              link="#news"
-              className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-green-800 hover:text-white"
-            />
-            <NavLink
-              title="Наша команда"
-              link="#team"
-              className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-green-800 hover:text-white"
-            />
-            <NavLink
-              title="Пожертвувати"
-              link="#donate"
-              className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-green-800 hover:text-white"
-            />
+            /> */}
           </div>
         </div>
       )}

@@ -1,33 +1,41 @@
 ---
 // /src/components/News.astro
-import NewsCarousel from './NewsCarousel.jsx';
-import myImage from '../../public/images/news.jpg'
+import NewsSlider from "./NewsSlider.js";
+import myImage from "../../public/images/news.jpg";
+import type { SliderProps } from "../types/types.ts";
 // Example news data
-const news = [
-    {
-        image: myImage,
-        title: 'Bear Valley Bible Institute Expands',
-        description: 'Bear Valley Bible Institute opens new campus in Africa to reach more students.',
-    },
-    {
-        image: myImage,
-        title: 'Graduation Ceremony 2024',
-        description: 'Celebrating the achievements of our latest graduates at Bear Valley.',
-    },
-    {
-        image: myImage,
-        title: 'New Online Courses',
-        description: 'Bear Valley now offers a range of online courses for remote learners.',
-    },
-    {
-        image: myImage,
-        title: 'Mission Trip Success',
-        description: 'Students return from a successful mission trip with inspiring stories.',
-    },
+const newsArray: SliderProps = [
+  {
+    id: 0,
+    image: myImage,
+    title: "Bear Valley Bible Institute Expands",
+    description:
+      "Bear Valley Bible Institute opens new campus in Africa to reach more students.",
+  },
+  {
+    id: 1,
+    image: myImage,
+    title: "Graduation Ceremony 2024",
+    description:
+      "Celebrating the achievements of our latest graduates at Bear Valley.",
+  },
+  {
+    id: 2,
+    image: myImage,
+    title: "New Online Courses",
+    description:
+      "Bear Valley now offers a range of online courses for remote learners.",
+  },
+  {
+    id: 3,
+    image: myImage,
+    title: "Mission Trip Success",
+    description:
+      "Students return from a successful mission trip with inspiring stories.",
+  },
 ];
 ---
 
-<section class="py-10">
-    <NewsCarousel client:load news={news} />
-    </NewsCarousel>
-</div>
+<section class="p-20">
+  <NewsSlider client:load news={newsArray} />
+</section>

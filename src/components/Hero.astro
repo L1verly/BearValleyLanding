@@ -1,27 +1,39 @@
 ---
-import PrimaryButton from './PrimaryButton.tsx'
-import SecondaryButton from './SecondaryButton.tsx'
+import PrimaryButton from "./PrimaryButton.tsx";
+import SecondaryButton from "./SecondaryButton.tsx";
 ---
 
-<main class="flex items-center justify-center font-serif mt-20 md:shrink-0 md:ml-20">
-    <div class="flex md:flex-row flex-col xl:max-w-6xl lg:max-w-5xl md:max-w-4xl gap-6">
-        <div class="flex flex-1 flex-col font-bold xl:text-6xl lg:text-5xl md:text-4xl sm:text-3xl text-3xl md:items-start items-center gap-10 mx-7">
-            <div class="flex flex-col max-md:items-center tracking-tight">
-                <span>Ми готуємо</span>
-                <span>Проповідників</span>
-                <span>Євангелістів</span>
-                <span>Місіонерів</span>
-                <span>Молодіжних</span>
-                <span>служителів</span>
-            </div>
-            <div class="flex flex-row max-md:justify-center gap-4">
-                <PrimaryButton title="Дізнатися більше" href="#main"/>
-                <SecondaryButton title="Подати заявку" href="https://t.me/teacher_BVB"/>
-            </div>
-        </div>
-        <div class="flex flex-1 xl:text-2xl lg:text-xl md:text-lg justify-center items-center tracking-wide leading-relaxed mx-9 text-center md:text-left">
-            В Bear Valley ми працюємо над виконанням доручення 2 Тимофія 2:2 - довірити зразок здорового навчання Євангелії вірним людям, 
-            які потім, у свою чергу, будуть підготовлені навчати інших.
-        </div>
+<main
+  class="flex items-center justify-center font-serif mt-20 md:shrink-0 md:ml-20"
+>
+  <div
+    class="flex md:flex-row flex-col xl:max-w-6xl lg:max-w-5xl md:max-w-4xl gap-6"
+  >
+    <h1
+      class="flex flex-1 flex-col font-bold xl:text-6xl lg:text-5xl md:text-4xl sm:text-3xl text-3xl md:items-start items-center gap-10 mx-7"
+    >
+      <div class="flex flex-col max-md:items-center tracking-tight">
+        <span>Ми готуємо</span>
+        <span>Проповідників</span>
+        <span>Євангелістів</span>
+        <span>Місіонерів</span>
+        <span>Молодіжних</span>
+        <span>служителів</span>
+      </div>
+      <div class="flex flex-row max-md:justify-center gap-5">
+        <PrimaryButton title="Дізнатися більше" href="#main" />
+        <SecondaryButton
+          title="Подати заявку"
+          href="https://t.me/teacher_BVB"
+        />
+      </div>
+    </h1>
+    <div
+      class="flex flex-1 xl:text-2xl lg:text-xl md:text-lg justify-center items-center tracking-wide leading-relaxed mx-9 text-center md:text-left"
+    >
+      В Bear Valley ми працюємо над виконанням доручення 2 Тимофія 2:2 -
+      довірити зразок здорового навчання Євангелії вірним людям, які потім, у
+      свою чергу, будуть підготовлені навчати інших.
     </div>
+  </div>
 </main>

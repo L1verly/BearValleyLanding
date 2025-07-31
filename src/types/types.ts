@@ -16,10 +16,18 @@ export interface CustomButtonProps {
   href: string;
 }
 
-export interface NewsItem {
+export interface NewsItemType {
   image: ImageMetadata;
   title: string;
   description: string;
 }
 
-export type News = NewsItem[];
+export interface TeamMemberType {
+  image: ImageMetadata;
+  title: string;
+}
+
+export interface NewsType extends NewsItemType {
+  id: number;
+}
+export type SliderProps = NewsType[];

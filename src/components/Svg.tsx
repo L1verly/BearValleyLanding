@@ -9,13 +9,7 @@ export const ArrowLeft = () => (
     <title>arrow_left [#335]</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g
-      id="Page-1"
-      stroke="none"
-      stroke-width="1"
-      fill="none"
-      fill-rule="evenodd"
-    >
+    <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
       <g
         id="Dribbble-Light-Preview"
         transform="translate(-345.000000, -6679.000000)"
@@ -43,13 +37,7 @@ export const ArrowRight = () => (
     <title>arrow_right [#336]</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g
-      id="Page-1"
-      stroke="none"
-      stroke-width="1"
-      fill="none"
-      fill-rule="evenodd"
-    >
+    <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
       <g
         id="Dribbble-Light-Preview"
         transform="translate(-305.000000, -6679.000000)"

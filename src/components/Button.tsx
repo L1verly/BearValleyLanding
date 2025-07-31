@@ -8,7 +8,7 @@ const Button = (props: ButtonProps) => {
         props.classProps +
         " " +
         `transition-all duration-200 hover:scale-105 truncate
-        font-medium rounded-lg text-sm px-7 py-4 me-2 mb-2`
+        font-medium rounded-lg text-base px-8 py-4`
       }
       style={{ ...props.styleProps }}
     >
