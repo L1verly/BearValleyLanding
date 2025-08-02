@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowRight, ArrowLeft } from "./Svg.tsx";
 import { type SliderProps } from "../types/types.ts";
-import NewsItem from "./NewsItem.tsx";
+import NewsItem from "./NewsCard.tsx";
 
 export default function NewsCarousel(props: { news: SliderProps }) {
   // const visibleCount = 3;

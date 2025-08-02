@@ -1,9 +1,10 @@
 ---
-
+import { InstagramIcon, FacebookIcon, TelegramIcon, GmailIcon } from "./Svg";
+import { IconButton } from "./IconButton.tsx";
 ---
 
 <footer
-  class="flex justify-around items-center h-30 text-white"
+  class="flex justify-around items-center h-[8.5rem] text-white"
   style="background-color: var(--color-accent);"
 >
   <div class="font-semibold text-xl">Bear Valley Bible Institute Україна</div>
@@ -11,16 +12,18 @@
     <span>Телефонуйте: +380631284647</span>
     <span>м. Біла Церква, вул. Партизанська 23</span>
   </div>
-  <!-- <IconButtons icon alt>
-    <IconSVG />
-  </IconButtons>
-  <IconButtons icon alt>
-    <IconSVG />
-  </IconButtons>
-  <IconButtons icon alt>
-    <IconSVG />
-  </IconButtons>
-  <IconButtons icon alt>
-    <IconSVG />
-  </IconButtons> -->
+  <div class="flex gap-5">
+    <IconButton client:visible>
+      <InstagramIcon />
+    </IconButton>
+    <IconButton client:visible>
+      <FacebookIcon />
+    </IconButton>
+    <IconButton client:visible>
+      <TelegramIcon />
+    </IconButton>
+    <IconButton client:visible>
+      <GmailIcon />
+    </IconButton>
+  </div>
 </footer>

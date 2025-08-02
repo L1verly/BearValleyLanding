@@ -1,8 +1,8 @@
 import { type NewsItemType } from "../types/types.ts";
 
-const NewsItem = (newsItem: NewsItemType) => {
+const NewsCard = (newsItem: NewsItemType) => {
   return (
-    <div className="shrink-0 bg-white rounded-2xl shadow-lg overflow-hidden duration-500">
+    <div className="shrink-0 bg-white rounded-2xl shadow-lg overflow-hidden hover:translate-y-0.5 hover:scale-105 transition duration-500">
       <img
         className="max-w-full max-h-full object-cover"
         src={newsItem.image.src}
@@ -15,4 +15,4 @@ const NewsItem = (newsItem: NewsItemType) => {
     </div>
   );
 };
-export default NewsItem;
+export default NewsCard;
