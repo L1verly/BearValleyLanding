@@ -22,9 +22,12 @@ export interface NewsItemType {
   description: string;
 }
 
-export interface TeamMemberType {
+export interface TeamMemberCardType {
+  key: number;
   image: ImageMetadata;
+  name: string;
   title: string;
+  description: string;
 }
 
 export interface NewsType extends NewsItemType {

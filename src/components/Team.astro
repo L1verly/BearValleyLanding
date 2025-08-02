@@ -1,0 +1,23 @@
+---
+import { TeamMemberCard } from "./TeamMemberCard";
+import TerryHarmon from "../../public/images/teamMembers/Terry_Harmon.png";
+const cards = [{}, {}, {}, {}];
+---
+
+<section class="flex w-full pt-40">
+  <span class="flex justify-center items-center">Наша команда</span>
+  <div class="grid grid-cols-3 justify-between">
+    {
+      cards.map((card, i) => (
+        <TeamMemberCard
+          key={i}
+          image={TerryHarmon}
+          name="Terry Harmon"
+          title="Teacher"
+          description="teacher"
+          client:load
+        />
+      ))
+    }
+  </div>
+</section>
