@@ -11,27 +11,15 @@ export const TeamMemberCard = (props: TeamMemberCardType) => {
         src={props.image.src}
         alt={props.title}
       ></img>
-      <div className="p-8 text-center">
-        <h3 className="text-lg font-bold tracking-wide">{props.title}</h3>
-        <h3 className="text-lg font-bold tracking-wide">{props.name}</h3>
-        <div className="text-sm text-gray-600">{props.description}</div>
+      <div className="flex flex-col gap-2.5 pb-8 px-8 py-4 text-center font-sans">
+        <h3 className="text-xl tracking-wide">{props.name}</h3>
+        <h3 className="text-base font-bold uppercase tracking-wider text-(--color-accent)">
+          {props.title}
+        </h3>
+        <div className="text-sm text-gray-500">{props.description}</div>
       </div>
     </div>
   );
 };
 
 export default TeamMemberCard;
-
-{
-  /* <div className="shrink-0 w-80 bg-white rounded-2xl shadow-md overflow-hidden">
-  <img
-    src={newsItem.image.src}
-    alt={newsItem.title}
-    className="w-full h-48 object-cover"
-  />
-  <div className="p-8">
-    <h3 className="text-center text-lg font-semibold">{newsItem.title}</h3>
-    <p className="text-sm text-gray-600">{newsItem.description}</p>
-  </div>
-</div>; */
-}

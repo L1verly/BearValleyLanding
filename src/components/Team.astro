@@ -1,23 +1,67 @@
 ---
 import { TeamMemberCard } from "./TeamMemberCard";
 import TerryHarmon from "../../public/images/teamMembers/Terry_Harmon.png";
-const cards = [{}, {}, {}, {}];
+import { Debug } from "astro:components";
+const cards = [
+  {
+    image: TerryHarmon,
+    name: "Тері Хармон",
+    title: "Викладач",
+    description: "Магістр теологічних наук",
+  },
+  {
+    image: TerryHarmon,
+    name: "Костянтин Кисиленко",
+    title: "Перекладач",
+    description: "Магістр теологічних наук",
+  },
+  {
+    image: TerryHarmon,
+    name: "Олександр Радкевич",
+    title: "Технічний Адміністратор",
+    description: "teacher",
+  },
+  {
+    image: TerryHarmon,
+    name: "TerryHarmon",
+    title: "Teacher",
+    description: "Магістр теологічних наук",
+  },
+  {
+    image: TerryHarmon,
+    name: "TerryHarmon",
+    title: "Teacher",
+    description: "teacher",
+  },
+  {
+    image: TerryHarmon,
+    name: "TerryHarmon",
+    title: "Teacher",
+    description: "teacher",
+  },
+  {
+    image: TerryHarmon,
+    name: "TerryHarmon",
+    title: "Teacher",
+    description: "teacher",
+  },
+];
+const firstCards = cards.slice(0, cards.length - 1);
+const lastCard = cards.at(-1);
 ---
 
-<section class="flex w-full pt-40">
-  <span class="flex justify-center items-center">Наша команда</span>
-  <div class="grid grid-cols-3 justify-between">
+<section class="flex flex-col gap-10 w-full pt-40 justify-center items-center">
+  <span class="text-4xl font-bold">Наша команда</span>
+  <div class="grid justify-center gap-20 grid-cols-3">
     {
-      cards.map((card, i) => (
-        <TeamMemberCard
-          key={i}
-          image={TerryHarmon}
-          name="Terry Harmon"
-          title="Teacher"
-          description="teacher"
-          client:load
-        />
+      firstCards.map((card, i) => (
+        <div>
+          <TeamMemberCard key={i} {...card} client:media="true" />
+        </div>
       ))
     }
+    <div class="col-start-2">
+      <TeamMemberCard key={cards.length - 1} {...lastCard} />
+    </div>
   </div>
 </section>

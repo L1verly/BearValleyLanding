@@ -16,7 +16,7 @@ export interface CustomButtonProps {
   href: string;
 }
 
-export interface NewsItemType {
+export interface NewsCardType {
   image: ImageMetadata;
   title: string;
   description: string;
@@ -30,7 +30,7 @@ export interface TeamMemberCardType {
   description: string;
 }
 
-export interface NewsType extends NewsItemType {
+export interface NewsType extends NewsCardType {
   id: number;
 }
 export type SliderProps = NewsType[];
