@@ -1,4 +1,4 @@
-import { type ButtonProps } from "../types/types";
+import { type ButtonProps } from "../../types/types";
 
 const Button = (props: ButtonProps) => {
   return (
@@ -8,7 +8,7 @@ const Button = (props: ButtonProps) => {
         props.classProps +
         " " +
         `transition-all duration-200 hover:scale-105 truncate
-        font-medium rounded-lg text-base px-8 py-4`
+        font-medium rounded-lg text-base px-8 py-4 text-center`
       }
       style={{ ...props.styleProps }}
     >

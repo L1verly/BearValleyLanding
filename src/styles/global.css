@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
 @import "tailwindcss";
 
 :root {
@@ -25,6 +27,10 @@
     opacity: 0;
   }
 }
+body {
+  /* font-family: "DM Sans", sans-serif; */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 
 .animate-slide-down {
   animation: slide-down 0.3s ease-out forwards;
@@ -33,3 +39,46 @@
 .animate-slide-up {
   animation: slide-up 0.3s ease-out forwards;
 }
+
+& .slick-list {
+  margin: 0 -10px;
+  & .slick-slide > div {
+    padding: 10px 10px;
+  }
+}
+
+.slick-track {
+  display: flex;
+  .slick-slide {
+    height: auto;
+    display: flex;
+    > div {
+      display: flex;
+    }
+  }
+}
+
+.slick-prev::before,
+.slick-next::before {
+  content: none !important;
+}
+
+.slick-prev {
+  left: -3rem !important;
+}
+
+.slick-next {
+  right: -3rem !important;
+}
+
+.slick-list {
+  overflow-x: clip !important;
+  overflow-y: visible !important;
+}
+/* .slick-slide {
+  margin: 0 10px;
+} */
+/* the parent */
+/* .slick-list {
+  margin: 0 -10px;
+} */

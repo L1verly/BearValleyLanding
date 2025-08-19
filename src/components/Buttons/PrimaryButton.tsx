@@ -1,5 +1,5 @@
 import Button from "./Button";
-import { type CustomButtonProps } from "../types/types";
+import { type CustomButtonProps } from "../../types/types";
 
 const classStyles = "text-white";
 const styles = {
