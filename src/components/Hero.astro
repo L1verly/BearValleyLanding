@@ -1,35 +1,39 @@
 ---
-import PrimaryButton from "./PrimaryButton.tsx";
-import SecondaryButton from "./SecondaryButton.tsx";
+import PrimaryButton from "./Buttons/PrimaryButton.tsx";
+import SecondaryButton from "./Buttons/SecondaryButton.tsx";
 ---
 
 <main
-  class="flex items-center justify-center font-serif mt-20 md:shrink-0 md:ml-20"
+  class="flex items-center justify-center font-serif mt-20 md:shrink-0 px-10"
 >
   <div
-    class="flex flex-row max-[985px]:flex-col xl:max-w-6xl lg:max-w-5xl md:max-w-4xl gap-6"
+    class="flex flex-row max-[985px]:flex-col xl:max-w-6xl lg:max-w-5xl md:max-w-4xl gap-1"
   >
-    <h1
-      class="flex flex-1 flex-col font-bold xl:text-6xl lg:text-5xl md:text-4xl text-4xl items-start max-[985px]:items-center gap-10 mx-7"
+    <div
+      class="flex flex-1 flex-col xl:text-5xl lg:text-5xl md:text-4xl text-4xl items-start max-[985px]:items-center gap-10 mx-7 text-right justify-end"
     >
-      <div class="flex flex-col max-[985px]:items-center tracking-tight">
+      <h1
+        class="flex flex-col max-[985px]:items-center tracking-normal uppercase w-full font-medium"
+      >
         <span>Ми готуємо</span>
         <span>Проповідників</span>
         <span>Євангелістів</span>
         <span>Місіонерів</span>
         <span>Молодіжних</span>
         <span>служителів</span>
-      </div>
-      <div class="flex flex-row max-[985px]:justify-center gap-5">
+      </h1>
+      <div
+        class="flex flex-row justify-end max-sm:flex-col max-[985px]:justify-center gap-5 w-full"
+      >
         <PrimaryButton title="Дізнатися більше" href="#main" />
         <SecondaryButton
           title="Подати заявку"
           href="https://t.me/teacher_BVB"
         />
       </div>
-    </h1>
+    </div>
     <div
-      class="flex flex-1 xl:text-2xl lg:text-xl md:text-lg justify-center items-center tracking-wide leading-relaxed mx-9 max-[985px]:text-center text-left max-[985px]:my-10"
+      class="flex flex-1 xl:text-2xl lg:text-xl md:text-lg justify-center pt-12 tracking-wide leading-relaxed mx-9 max-[985px]:text-center text-left max-[985px]:my-10"
     >
       В Bear Valley ми працюємо над виконанням доручення 2 Тимофія 2:2 -
       довірити зразок здорового навчання Євангелії вірним людям, які потім, у

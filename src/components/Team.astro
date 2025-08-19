@@ -1,67 +1,77 @@
 ---
 import { TeamMemberCard } from "./TeamMemberCard";
-import TerryHarmon from "../../public/images/teamMembers/Terry_Harmon.png";
-import { Debug } from "astro:components";
+import TerryHarmon from "../assets/teamMembers/TerryHarmon.png";
+import KostyantynKisilenko from "../assets/teamMembers/KostyantynKisilenko.png";
+import OleksandrRadkevych from "../assets/teamMembers/OleksandrRadkevych.jpg";
+import DmitroHaliuk from "../assets/teamMembers/DmitroHaliuk.png";
+import VolodimirPaziy from "../assets/teamMembers/VolodimirPaziy.png";
+import OlegFofanov from "../assets/teamMembers/OlegFofanov.png";
+import DenisSopelnyk from "../assets/teamMembers/DenisSopelnyk.png";
+import PrimaryButton from "./Buttons/PrimaryButton";
+
 const cards = [
   {
     image: TerryHarmon,
     name: "Тері Хармон",
     title: "Викладач",
-    description: "Магістр теологічних наук",
+    description:
+      "Магістр теологічних наук Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam voluptate quas, voluptatibus excepturi ullam minus? Esse et, assumenda laboriosam omnis, atque non aut eum, sit soluta officiis necessitatibus. Nisi, ex.",
   },
   {
-    image: TerryHarmon,
+    image: KostyantynKisilenko,
     name: "Костянтин Кисиленко",
     title: "Перекладач",
     description: "Магістр теологічних наук",
   },
   {
-    image: TerryHarmon,
+    image: OleksandrRadkevych,
     name: "Олександр Радкевич",
     title: "Технічний Адміністратор",
     description: "teacher",
   },
   {
-    image: TerryHarmon,
-    name: "TerryHarmon",
+    image: DmitroHaliuk,
+    name: "Дмитро Галюк",
     title: "Teacher",
     description: "Магістр теологічних наук",
   },
   {
-    image: TerryHarmon,
-    name: "TerryHarmon",
+    image: VolodimirPaziy,
+    name: "Володимир Пазій",
     title: "Teacher",
     description: "teacher",
   },
   {
-    image: TerryHarmon,
-    name: "TerryHarmon",
+    image: OlegFofanov,
+    name: "Олег Фофанов",
     title: "Teacher",
     description: "teacher",
   },
   {
-    image: TerryHarmon,
-    name: "TerryHarmon",
+    image: DenisSopelnyk,
+    name: "Денис Сопельник",
     title: "Teacher",
     description: "teacher",
   },
 ];
-const firstCards = cards.slice(0, cards.length - 1);
-const lastCard = cards.at(-1);
 ---
 
-<section class="flex flex-col gap-10 w-full pt-40 justify-center items-center">
-  <span class="text-4xl font-bold">Наша команда</span>
-  <div class="grid justify-center gap-20 grid-cols-3">
+<section class="flex flex-col gap-20 w-full pt-20 justify-center items-center">
+  <span class="text-5xl font-bold font-serif">Наша команда</span>
+  <div
+    class="flex flex-wrap justify-center gap-20 2xl:max-w-[90rem] lg:max-w-7xl md:max-w-5xl"
+  >
     {
-      firstCards.map((card, i) => (
-        <div>
-          <TeamMemberCard key={i} {...card} client:media="true" />
+      cards.map((card, i) => (
+        <div class="justify-center">
+          <TeamMemberCard key={i} {...card} />
         </div>
       ))
     }
-    <div class="col-start-2">
+    <!-- <div class="md:col-start-2">
       <TeamMemberCard key={cards.length - 1} {...lastCard} />
-    </div>
+    </div> -->
   </div>
+  <PrimaryButton title="Дізнатися більше" href="https://t.me/teacher_BVB" />
+  <hr class="h-px my-8 border-0 bg-black" />
 </section>

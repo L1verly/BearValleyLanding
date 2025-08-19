@@ -4,10 +4,10 @@ export const TeamMemberCard = (props: TeamMemberCardType) => {
   return (
     <div
       key={props.key}
-      className="flex flex-col w-70 bg-white overflow-hidden shrink-0 shadow-xl rounded-2xl"
+      className="group flex flex-col w-70 bg-white overflow-hidden shrink-0 shadow-lg rounded-2xl hover:translate-y-1 hover:scale-105 active:translate-y-1 active:scale-105 transition duration-500"
     >
       <img
-        className="object-cover w-full"
+        className="object-cover h-64"
         src={props.image.src}
         alt={props.title}
       ></img>
@@ -16,7 +16,9 @@ export const TeamMemberCard = (props: TeamMemberCardType) => {
         <h3 className="text-base font-bold uppercase tracking-wider text-(--color-accent)">
           {props.title}
         </h3>
-        <div className="text-sm text-gray-500">{props.description}</div>
+        <div className="text-sm text-gray-500 overflow-hidden max-h-12 group-hover:max-h-48 transition-all duration-500 ease-in-out">
+          {props.description}
+        </div>
       </div>
     </div>
   );
