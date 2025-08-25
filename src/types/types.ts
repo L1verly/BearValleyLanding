@@ -25,7 +25,7 @@ export interface NewsCardType {
 
 export interface TeamMemberCardType {
   key: number;
-  image: ImageMetadata;
+  imageAstro: React.ReactNode;
   name: string;
   title: string;
   description: string;

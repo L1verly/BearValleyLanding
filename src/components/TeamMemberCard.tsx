@@ -6,11 +6,7 @@ export const TeamMemberCard = (props: TeamMemberCardType) => {
       key={props.key}
       className="group flex flex-col w-70 bg-white overflow-hidden shrink-0 shadow-lg rounded-2xl hover:translate-y-1 hover:scale-105 active:translate-y-1 active:scale-105 transition duration-500"
     >
-      <img
-        className="object-cover h-64"
-        src={props.image.src}
-        alt={props.title}
-      ></img>
+      <slot>{props.imageAstro}</slot>
       <div className="flex flex-col gap-2.5 pb-8 px-8 py-4 text-center font-sans">
         <h3 className="text-xl tracking-wide">{props.name}</h3>
         <h3 className="text-base font-bold uppercase tracking-wider text-(--color-accent)">

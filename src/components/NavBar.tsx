@@ -1,20 +1,27 @@
 import { useEffect, useState, useRef } from "react";
-import NavLink from "./NavLink";
+import NavLink from "./NavLink.tsx";
 import { HamburgerIcon, CloseIcon } from "./Svg.tsx";
-type Props = {};
 
-const MenuToggle = (props: Props) => {
+const NavBar = () => {
   // State to manage the open/closed state of the menu
   const [isOpen, setIsOpen] = useState(false);
   const [animation, setAnimation] = useState("animate-slide-down");
   // State to manage the icon displayed in the button
   // This is needed because on calling hide() function there is a delay, thus isOpen can't be used for changing the icon
   const [icon, setIcon] = useState(<HamburgerIcon />);
+  const [activeSection, setActiveSection] = useState<string>("main");
+
   const handleClick = () => {
     isOpen ? hide(200) : show();
   };
   const menuRef = useRef<HTMLDivElement | null>(null);
-
+  const navButtons = [
+    { title: "Головна", link: "main" },
+    { title: "Новини", link: "news" },
+    { title: "Наша команда", link: "team" },
+    { title: "Пожертвувати", link: "donate" },
+  ];
+  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -48,13 +55,28 @@ const MenuToggle = (props: Props) => {
     setIsOpen(!isOpen);
   };
 
-  const navButtons = [
-    { title: "Головна", link: "#main" },
-    { title: "Новини", link: "#news" },
-    { title: "Наша команда", link: "#team" },
-    { title: "Пожертвувати", link: "#donate" },
-  ];
+  // Highlight nav link based on scroll position
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        threshold: 0, // trigger as soon as it enters
+        rootMargin: "-50% 0px -50% 0px",
+      }
+    );
 
+    navButtons.forEach((btn) => {
+      const el = document.getElementById(btn.link);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
   return (
     <nav
       className="relative flex w-full h-16 items-center justify-center max-sm:justify-end"
@@ -75,7 +97,9 @@ const MenuToggle = (props: Props) => {
               key={i}
               title={button.title}
               link={button.link}
-              className="rounded-md px-4 py-2 hover:bg-green-800 hover:text-white"
+              className={`rounded-md px-4 py-2 hover:bg-green-800 hover:text-white ${
+                activeSection === button.link ? "bg-green-800 text-white" : ""
+              }`}
             />
           ))}
         </div>
@@ -93,14 +117,11 @@ const MenuToggle = (props: Props) => {
                 key={i}
                 title={button.title}
                 link={button.link}
-                className="block rounded-md px-3 py-2 text-base font-medium hover:bg-green-800 hover:text-white"
+                className={`block rounded-md px-3 py-2 font-medium hover:bg-green-800 hover:text-white ${
+                  activeSection === button.link ? "bg-green-800 text-white" : ""
+                }`}
               />
             ))}
-            {/* <NavLink
-              title="Головна"
-              link="#main"
-              className="block rounded-md bg-green-800 px-3 py-2 text-base font-medium text-white"
-            /> */}
           </div>
         </div>
       )}
@@ -108,4 +129,4 @@ const MenuToggle = (props: Props) => {
   );
 };
 
-export default MenuToggle;
+export default NavBar;

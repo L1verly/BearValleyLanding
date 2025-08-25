@@ -74,11 +74,5 @@ body {
 .slick-list {
   overflow-x: clip !important;
   overflow-y: visible !important;
+  z-index: 98;
 }
-/* .slick-slide {
-  margin: 0 10px;
-} */
-/* the parent */
-/* .slick-list {
-  margin: 0 -10px;
-} */

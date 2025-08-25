@@ -93,6 +93,7 @@ export const InstagramIcon = () => (
     fill="white"
     xmlns="http://www.w3.org/2000/svg"
   >
+    <title>Instagram</title>
     <path
       fillRule="evenodd"
       clipRule="evenodd"
@@ -123,6 +124,7 @@ export const FacebookIcon = () => (
     stroke="#ffffff"
     className="size-7"
   >
+    <title>Facebook</title>
     <g id="SVGRepo_bgCarrier" strokeWidth="0" />
 
     <g
@@ -156,6 +158,7 @@ export const TelegramIcon = () => (
     strokeWidth="0.00024000000000000003"
     className="size-7"
   >
+    <title>Telegram</title>
     <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
     <g
       id="SVGRepo_tracerCarrier"
@@ -177,6 +180,7 @@ export const GmailIcon = () => (
     fill="none"
     className="size-7"
   >
+    <title>Gmail</title>
     <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
     <g
       id="SVGRepo_tracerCarrier"
@@ -201,6 +205,7 @@ export const YoutubeIcon = () => (
     xmlns="http://www.w3.org/2000/svg"
     className="size-27"
   >
+    <title>Біблійний Інститут Bear Valley Ukraine Youtube Channel</title>
     <path
       fillRule="evenodd"
       clipRule="evenodd"
