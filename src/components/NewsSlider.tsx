@@ -3,8 +3,6 @@ import { useEffect, useRef, useState, useLayoutEffect } from "react";
 import { ArrowRightSVG, ArrowLeftSVG } from "./Svg.tsx";
 import { type SliderProps } from "../types/types.ts";
 import NewsCard from "./NewsCard.tsx";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
 const RigthArrow = ({ style, className, onClick }: any) => (
