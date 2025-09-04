@@ -1,12 +1,15 @@
 ---
+import Image from "astro/components/Image.astro";
 import PrimaryButton from "./Buttons/PrimaryButton.tsx";
 import SecondaryButton from "./Buttons/SecondaryButton.tsx";
+import Logo from "../assets/BVBIU_Logo.jpg";
 ---
 
 <main
-  class="flex items-center justify-center font-serif pt-20 md:shrink-0 px-10"
+  class="flex flex-col items-center justify-center font-serif pt-12 md:shrink-0 px-10"
   id="main"
 >
+  <Image src={Logo} alt="Bear Valley Bible Institute Logo" class="mb-12" />
   <div
     class="flex flex-row max-[985px]:flex-col xl:max-w-6xl lg:max-w-5xl md:max-w-4xl gap-1"
   >
@@ -26,7 +29,10 @@ import SecondaryButton from "./Buttons/SecondaryButton.tsx";
       <div
         class="flex flex-row justify-end max-sm:flex-col max-[985px]:justify-center gap-5 w-full"
       >
-        <PrimaryButton title="Дізнатися більше" href="#main" />
+        <PrimaryButton
+          title="Дізнатися більше"
+          href="https://www.facebook.com/people/Bear-Valley-Bible-Institute-in-Ukraine/100064536646381/"
+        />
         <SecondaryButton
           title="Подати заявку"
           href="https://t.me/teacher_BVB"
