@@ -5,7 +5,7 @@ import { type SliderProps } from "../types/types.ts";
 import NewsCard from "./NewsCard.tsx";
 import Slider from "react-slick";
 
-const RigthArrow = ({ style, className, onClick }: any) => (
+const RightArrow = ({ style, className, onClick }: any) => (
   <button
     onClick={onClick}
     className={
@@ -35,94 +35,144 @@ const LeftArrow = ({ style, className, onClick }: any) => (
   </button>
 );
 
-export default function NewsCarousel(props: { news: SliderProps }) {
+// export default function NewsCarousel(props: { news: SliderProps }) {
+//   const { news } = props;
+//   const sliderRef = useRef<Slider>(null);
+//   const [sliderHeight, setSliderHeight] = useState<number>(0);
+
+//   // This state will control the rendering of the slider
+//   const [hasMounted, setHasMounted] = useState(false);
+
+//   // This effect runs only once on the client after the component mounts
+//   useEffect(() => {
+//     setHasMounted(true);
+//   }, []);
+
+//   // Simplified function to calculate adaptive height
+//   const calculateAndSetHeight = () => {
+//     // A small delay to ensure slides are rendered before we measure
+//     setTimeout(() => {
+//       if (sliderRef.current) {
+//         const sliderElement = (sliderRef.current as any).innerSlider.list;
+//         const activeSlides = sliderElement.querySelectorAll(".slick-active");
+//         let maxHeight = 0;
+//         activeSlides.forEach((slide: Element) => {
+//           if ((slide as HTMLElement).offsetHeight > maxHeight) {
+//             maxHeight = (slide as HTMLElement).offsetHeight;
+//           }
+//         });
+//         setSliderHeight(maxHeight);
+//       }
+//     }, 50);
+//   };
+
+//   const settings = {
+//     dots: true,
+//     initialSlide: 0,
+//     infinite: true,
+//     speed: 500,
+//     slidesToShow: 3, // Default for desktop
+//     slidesToScroll: 1,
+//     responsive: [
+//       {
+//         breakpoint: 1024,
+//         settings: {
+//           slidesToShow: 2,
+//         },
+//       },
+//       {
+//         breakpoint: 640,
+//         settings: {
+//           slidesToShow: 1,
+//           arrows: false,
+//         },
+//       },
+//     ],
+//     nextArrow: <RigthArrow />,
+//     prevArrow: <LeftArrow />,
+//     // Use react-slick's built-in callbacks to manage height
+//     onInit: () => calculateAndSetHeight(),
+//     onReInit: () => calculateAndSetHeight(), // Fires after breakpoint change
+//     afterChange: () => calculateAndSetHeight(),
+//   };
+
+//   return (
+//     <div className="sm:w-10/12 w-full 2xl:max-w-7xl lg:max-w-6xl md:max-w-5xl sm:max-w-4xl">
+//       <style>
+//         {`
+//           .slick-list {
+//             transition: height 0.5s ease !important;
+//             height: ${
+//               sliderHeight > 0 ? `${sliderHeight}px` : "auto"
+//             } !important;
+//           }
+//         `}
+//       </style>
+//       <div className="slider-container">
+//         {/* KEY CHANGE: Conditionally render the Slider */}
+//         {hasMounted && (
+//           <Slider {...settings} ref={sliderRef}>
+//             {news.map((item, index) => (
+//               <div key={index}>
+//                 <NewsCard
+//                   image={item.image}
+//                   title={item.title}
+//                   description={item.description}
+//                 />
+//               </div>
+//             ))}
+//           </Slider>
+//         )}
+//       </div>
+//     </div>
+//   );
+// }
+
+export default function NewsSlider(props: { news: SliderProps }) {
   const news = props.news;
   const sliderRef = useRef<Slider>(null);
-  const [sliderHeight, setSliderHeight] = useState<number>(0);
 
-  // Function to calculate adaptive height based on visible slides
-  const multiSlideAdaptiveHeight = () => {
-    if (!sliderRef.current) return;
+  // Use state to manage the number of slides to show
+  const [slidesToShow, setSlidesToShow] = useState(3);
 
-    setTimeout(() => {
-      const sliderElement = sliderRef.current?.innerSlider?.list;
-      if (!sliderElement) return;
-
-      const activeSlides = sliderElement.querySelectorAll(".slick-active");
-      let tallestSlide = 0;
-
-      activeSlides.forEach((slide: Element) => {
-        const slideHeight = (slide as HTMLElement).offsetHeight;
-        if (slideHeight > tallestSlide) {
-          tallestSlide = slideHeight;
-        }
-      });
-
-      setSliderHeight(tallestSlide);
-    }, 50);
-  };
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
-  useLayoutEffect(() => {
-    if (!mounted) return;
-    const r = sliderRef.current as any;
-    // Call Slick’s internal handler (present at runtime)
-    r?.innerSlider?.onWindowResized?.();
-    // Also dispatch a resize event for good measure
-    window.dispatchEvent(new Event("resize"));
-    // Nudge a render pass
-    r?.slickGoTo?.(0, true);
-  }, [mounted]);
-  // Handle window resize
+  // Effect to update slidesToShow on component mount and window resize
   useEffect(() => {
     const handleResize = () => {
-      multiSlideAdaptiveHeight();
+      if (window.innerWidth >= 1024) {
+        setSlidesToShow(3);
+      } else if (window.innerWidth >= 640) {
+        setSlidesToShow(2);
+      } else {
+        setSlidesToShow(1);
+      }
     };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
+    // Initial check on mount
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []); // Empty dependency array ensures this effect runs only once on mount
+
+  // Now, pass the state variable to the slidesToShow prop
   const settings = {
     dots: true,
     initialSlide: 0,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: slidesToShow,
     slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024, // up to tablets
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 640, // up to mobile
-        settings: {
-          slidesToShow: 1,
-          arrows: false,
-        },
-      },
-    ],
-    nextArrow: <RigthArrow />,
+    nextArrow: <RightArrow />,
     prevArrow: <LeftArrow />,
-    onInit: () => multiSlideAdaptiveHeight(),
-    onReInit: () => multiSlideAdaptiveHeight(),
-    beforeChange: () => multiSlideAdaptiveHeight(),
-    afterChange: () => multiSlideAdaptiveHeight(),
   };
+
   return (
     <div className="sm:w-10/12 w-full 2xl:max-w-7xl lg:max-w-6xl md:max-w-5xl sm:max-w-4xl">
-      <style>
-        {`
-          .slick-list {
-            transition: height 0.5s ease !important;
-            height: ${sliderHeight}px !important;
-          }
-        `}
-      </style>
       <div className="slider-container">
         <Slider {...settings} ref={sliderRef}>
           {news.map((i, index) => (
