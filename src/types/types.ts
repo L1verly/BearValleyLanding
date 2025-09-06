@@ -5,7 +5,6 @@ export interface NavLinkProps {
 }
 
 export interface ButtonProps {
-  styleProps: React.CSSProperties;
   classProps: string;
   title: string;
   href: string;
