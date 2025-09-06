@@ -134,15 +134,19 @@ export default function NewsSlider(props: { news: SliderProps }) {
 
   // Use state to manage the number of slides to show
   const [slidesToShow, setSlidesToShow] = useState(3);
+  const [showArrows, setShowArrows] = useState(true);
 
   // Effect to update slidesToShow on component mount and window resize
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
+        setShowArrows(true);
         setSlidesToShow(3);
       } else if (window.innerWidth >= 640) {
+        setShowArrows(true);
         setSlidesToShow(2);
       } else {
+        setShowArrows(false);
         setSlidesToShow(1);
       }
     };
@@ -166,6 +170,7 @@ export default function NewsSlider(props: { news: SliderProps }) {
     infinite: true,
     speed: 500,
     slidesToShow: slidesToShow,
+    arrows: showArrows,
     slidesToScroll: 1,
     nextArrow: <RightArrow />,
     prevArrow: <LeftArrow />,
