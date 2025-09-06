@@ -13,7 +13,7 @@ const NewsCard = (newsItem: NewsCardType) => {
       />
       <div className="p-8">
         <h3 className="text-center text-lg font-semibold">{newsItem.title}</h3>
-        <p className="text-sm text-gray-600 overflow-clip max-h-12 group-hover:max-h-48 group-active:max-h-48 transition-all duration-500 ease-in-out">
+        <p className="text-sm text-gray-500 truncate group-active:whitespace-normal group-hover:whitespace-normal max-h-12 group-hover:max-h-100 group-active:max-h-60 transition-all duration-500 ease-in-out">
           {newsItem.description}
         </p>
       </div>

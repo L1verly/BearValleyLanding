@@ -12,7 +12,7 @@ export const TeamMemberCard = (props: TeamMemberCardType) => {
         <h3 className="text-base font-bold uppercase tracking-wider text-(--color-accent)">
           {props.title}
         </h3>
-        <div className="text-sm text-gray-500 truncate group-active:whitespace-normal group-hover:whitespace-normal max-h-12 group-hover:max-h-60 group-active:max-h-60 transition-all duration-500 ease-in-out">
+        <div className="text-sm text-gray-500 truncate group-active:whitespace-normal group-hover:whitespace-normal max-h-12 group-hover:max-h-100 group-active:max-h-60 transition-all duration-500 ease-in-out">
           {props.description}
         </div>
       </div>
