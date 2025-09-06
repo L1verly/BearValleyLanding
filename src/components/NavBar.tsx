@@ -85,7 +85,7 @@ const NavBar = () => {
       <button
         onClick={handleClick}
         className="relative inline-flex sm:hidden items-center justify-center rounded-md p-2 
-      text-gray-400 hover:bg-green-700 hover:text-white focus:ring-2 
+      text-gray-400 hover:bg-(--color-accent) hover:text-white focus:ring-2 
       focus:ring-white focus:outline-hidden focus:ring-inset"
       >
         {icon}
@@ -97,8 +97,10 @@ const NavBar = () => {
               key={i}
               title={button.title}
               link={button.link}
-              className={`rounded-md px-4 py-2 hover:bg-green-800 hover:text-white ${
-                activeSection === button.link ? "bg-green-800 text-white" : ""
+              className={`rounded-md px-4 py-2 hover:bg-(--color-accent) hover:text-white ${
+                activeSection === button.link
+                  ? "bg-(--color-accent) text-white"
+                  : ""
               }`}
             />
           ))}
@@ -117,8 +119,10 @@ const NavBar = () => {
                 key={i}
                 title={button.title}
                 link={button.link}
-                className={`block rounded-md px-3 py-2 font-medium hover:bg-green-800 hover:text-white ${
-                  activeSection === button.link ? "bg-green-800 text-white" : ""
+                className={`block rounded-md px-3 py-2 font-medium hover:bg-(--color-accent) hover:text-white ${
+                  activeSection === button.link
+                    ? "bg-(--color-accent) text-white"
+                    : ""
                 }`}
               />
             ))}
