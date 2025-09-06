@@ -205,7 +205,7 @@ export const YoutubeIcon = () => (
     xmlns="http://www.w3.org/2000/svg"
     className="size-27 youtubeIcon"
   >
-    <title>Ютуб канал Біблійного Інституту Bear Valley Ukraine</title>
+    <title>Youtube канал Біблійного Інституту Bear Valley Ukraine</title>
     <path
       fillRule="evenodd"
       clipRule="evenodd"
