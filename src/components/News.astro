@@ -40,9 +40,6 @@ const newsArray: SliderProps = [
 ];
 ---
 
-<section
-  class="flex justify-center min-[985px]:p-20 max-[300px]:px-5"
-  id="news"
->
+<section class="flex justify-center min-[985px]:p-20 px-5" id="news">
   <NewsSlider client:load client:only="react" news={newsArray} />
 </section>

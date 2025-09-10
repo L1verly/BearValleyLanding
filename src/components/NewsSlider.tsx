@@ -132,7 +132,6 @@ export default function NewsSlider(props: { news: SliderProps }) {
   const news = props.news;
   const sliderRef = useRef<Slider>(null);
 
-  // Use state to manage the number of slides to show
   const [slidesToShow, setSlidesToShow] = useState(3);
   const [showArrows, setShowArrows] = useState(true);
 
@@ -161,9 +160,8 @@ export default function NewsSlider(props: { news: SliderProps }) {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []); // Empty dependency array ensures this effect runs only once on mount
+  }, []);
 
-  // Now, pass the state variable to the slidesToShow prop
   const settings = {
     dots: true,
     initialSlide: 0,
@@ -172,6 +170,7 @@ export default function NewsSlider(props: { news: SliderProps }) {
     slidesToShow: slidesToShow,
     arrows: showArrows,
     slidesToScroll: 1,
+    swipeToSlide: true,
     nextArrow: <RightArrow />,
     prevArrow: <LeftArrow />,
   };
