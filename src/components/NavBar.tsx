@@ -67,7 +67,7 @@ const NavBar = () => {
       },
       {
         threshold: 0, // trigger as soon as it enters
-        rootMargin: "-50% 0px -50% 0px",
+        rootMargin: "-40% 0px -40% 0px",
       }
     );
 

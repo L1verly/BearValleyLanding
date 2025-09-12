@@ -1,6 +1,4 @@
-import React from "react";
 import type { NavLinkProps } from "../types/types";
-
 function NavLink({ title, link, className = "" }: NavLinkProps) {
   return (
     <div>
