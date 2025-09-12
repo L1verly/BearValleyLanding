@@ -79,6 +79,8 @@ body {
 
 .youtubeIcon:hover,
 .youtubeIcon:active {
+  filter: drop-shadow(0 0 10px #e00909);
+
   transition: 500ms cubic-bezier(0.19, 1, 0.22, 1);
   scale: 1.1;
 }
