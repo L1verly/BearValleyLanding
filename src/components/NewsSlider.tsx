@@ -198,6 +198,7 @@ export default function NewsSlider(props: { news: SliderProps }) {
     arrows: showArrows,
     slidesToScroll: 1,
     swipeToSlide: true,
+    swipe: true,
     nextArrow: <RightArrow />,
     prevArrow: <LeftArrow />,
     onReInit: () => calculateAndSetHeight(),
