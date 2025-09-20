@@ -148,7 +148,7 @@ export default function NewsSlider(props: { news: SliderProps }) {
   // Simplified function to calculate adaptive height
   const calculateAndSetHeight = () => {
     // A small delay to ensure slides are rendered before we measure
-    setTimeout(() => {
+    requestAnimationFrame(() => {
       if (sliderRef.current) {
         const sliderElement = (sliderRef.current as any).innerSlider.list;
         const activeSlides = sliderElement.querySelectorAll(".slick-active");
@@ -160,7 +160,7 @@ export default function NewsSlider(props: { news: SliderProps }) {
         });
         setSliderHeight(maxHeight);
       }
-    }, 50);
+    });
   };
   // Effect to update slidesToShow on component mount and window resize
   useEffect(() => {
@@ -201,6 +201,7 @@ export default function NewsSlider(props: { news: SliderProps }) {
     swipe: true,
     nextArrow: <RightArrow />,
     prevArrow: <LeftArrow />,
+    onInit: () => calculateAndSetHeight(),
     onReInit: () => calculateAndSetHeight(),
     afterChange: () => calculateAndSetHeight(),
   };
