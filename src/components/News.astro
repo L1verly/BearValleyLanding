@@ -1,38 +1,42 @@
 ---
 // /src/components/News.astro
 import NewsSlider from "./NewsSlider.js";
-import myImage from "../../public/images/news.jpg";
+import G_1 from "../assets/news/G_1.jpg";
+import G_2 from "../assets/news/G_2.jpg";
+import Graduation from "../assets/news/Graduation.jpg";
+import Schedule from "../assets/news/Schedule.jpg";
+import Starts_now from "../assets/news/Starts_now.jpg";
 import type { SliderProps } from "../types/types.ts";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-// Example news data
+
 const newsArray: SliderProps = [
   {
-    image: myImage,
+    image: G_1,
     title: "Bear Valley Bible Institute Expands",
     description:
       "Bear Valley Bible Institute opens new campus in Africa to reach more students.",
   },
   {
-    image: myImage,
+    image: G_2,
     title: "Graduation Ceremony 2024",
     description:
       "Celebrating the achievements of our latest graduates at Bear Valley.",
   },
   {
-    image: myImage,
+    image: Graduation,
     title: "New Online Courses",
     description:
       "Bear Valley now offers a range of online courses for remote learners.",
   },
   {
-    image: myImage,
+    image: Schedule,
     title: "Mission Trip Success",
     description:
       "Students return from a successful mission trip with inspiring stories.",
   },
   {
-    image: myImage,
+    image: Starts_now,
     title: "Mission Trip Success",
     description:
       "Students return from a successful mission trip with inspiring stories.",
@@ -40,6 +44,6 @@ const newsArray: SliderProps = [
 ];
 ---
 
-<section class="flex justify-center min-[985px]:py-20" id="news">
+<section class="flex justify-center min-[985px]:py-20 scroll-mt-20" id="news">
   <NewsSlider client:load client:only="react" news={newsArray} />
 </section>
