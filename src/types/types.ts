@@ -27,7 +27,7 @@ export interface TeamMemberCardType {
   imageAstro: React.ReactNode;
   name: string;
   title: string;
-  description: string;
+  description: [line: string];
 }
 
 export type SliderProps = NewsCardType[];
