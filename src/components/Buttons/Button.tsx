@@ -3,6 +3,7 @@ import { type ButtonProps } from "../../types/types";
 const Button = (props: ButtonProps) => {
   return (
     <a
+      target="_blank"
       href={props.href}
       className={
         props.classProps +
