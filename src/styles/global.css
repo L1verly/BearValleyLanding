@@ -87,9 +87,3 @@ body {
 .youtubeIcon {
   transition: 300ms ease-out;
 }
-
-.newsImage {
-  background-size: cover;
-  background-position: center;
-  transition: height 0.3s;
-}
