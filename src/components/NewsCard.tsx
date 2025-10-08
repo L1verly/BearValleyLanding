@@ -20,7 +20,7 @@ const NewsCard = ({
       />
       <div className="p-8">
         <h3 className="text-center text-lg font-semibold pb-3">{title}</h3>
-        <article className="text-sm text-gray-500 line-clamp-2 group-active:line-clamp-none group-hover:line-clamp-none max-h-12 group-hover:max-h-100 group-active:max-h-60 transition-all duration-700 ease-in-out">
+        <article className="text-sm text-gray-500 line-clamp-2 group-hover:line-clamp-none group-active:line-clamp-none max-h-12 group-hover:max-h-100 group-active:max-h-100 transition-all duration-700 ease-in-out">
           {typeof description === "string"
             ? description
             : description.map((line, i) => <p key={i}>{line}</p>)}
