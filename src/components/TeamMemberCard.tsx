@@ -8,8 +8,11 @@ export const TeamMemberCard = ({
   description,
 }: TeamMemberCardType) => {
   return (
-    <div key={key} onClick={() => {}}>
-      <div className="group flex flex-col w-70 bg-white overflow-hidden shrink-0 shadow-lg rounded-2xl hover:translate-y-1 active:translate-y-1 hover:scale-105 active:scale-105 transition duration-500">
+    <div key={key}>
+      <div
+        onClick={() => {}}
+        className="group flex flex-col w-70 bg-white overflow-hidden shrink-0 shadow-lg rounded-2xl hover:translate-y-1 active:translate-y-1 hover:scale-105 active:scale-105 transition duration-500"
+      >
         <slot>{imageAstro}</slot>
         <div className="flex flex-col gap-2.5 mb-8 px-6 my-4 text-center font-sans">
           <h3 className="text-xl tracking-wide">{name}</h3>
