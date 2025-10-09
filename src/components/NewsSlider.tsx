@@ -120,11 +120,7 @@ export default function NewsSlider(props: { news: SliderProps }) {
         <Slider {...settings} ref={sliderRef}>
           {news.map((i, index) => (
             <div key={index}>
-              <NewsCard
-                image={i.image}
-                title={i.title}
-                description={i.description}
-              />
+              <NewsCard {...i} />
             </div>
           ))}
         </Slider>

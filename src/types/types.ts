@@ -18,7 +18,8 @@ export interface CustomButtonProps {
 export interface NewsCardType {
   image: ImageMetadata;
   title: string;
-  description: string;
+  description: Array<string> | string;
+  link: string;
   otherProps?: any;
 }
 
@@ -27,7 +28,7 @@ export interface TeamMemberCardType {
   imageAstro: React.ReactNode;
   name: string;
   title: string;
-  description: [line: string];
+  description: Array<string>;
 }
 
 export type SliderProps = NewsCardType[];
