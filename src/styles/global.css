@@ -2,6 +2,16 @@
 
 @import "tailwindcss";
 
+@custom-variant hover {
+  /* If the browser supports the hover event, apply the specified classes on the :hover event */
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @slot;
+    }
+  }
+  /* If hover is not supported, apply the styling immediately */
+}
+
 :root {
   --color-accent: #046001;
 }
