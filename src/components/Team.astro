@@ -1,6 +1,6 @@
 ---
 import { TeamMemberCard } from "./TeamMemberCard";
-import TerryHarmon from "../assets/teamMembers/TerryHarmon.png";
+import TerryHarmon from "../assets/teamMembers/TerryHarmon.jpg";
 import KostyantynKisilenko from "../assets/teamMembers/KostyantynKisilenko.png";
 import OleksandrRadkevych from "../assets/teamMembers/OleksandrRadkevych.jpg";
 import DmitroHaliuk from "../assets/teamMembers/DmitroHaliuk.jpg";
@@ -101,7 +101,7 @@ const cards = [
     {
       cards.map((card, i) => (
         <div>
-          <TeamMemberCard key={i} {...card}>
+          <TeamMemberCard key={i} {...card} client:load client:only="react">
             <Image
               slot="imageAstro"
               src={card.image}
