@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { type TeamMemberCardType } from "../types/types.ts";
 
 export const TeamMemberCard = ({
+  key,
   imageAstro,
   name,
   title,
@@ -49,11 +50,12 @@ export const TeamMemberCard = ({
   }, [isUncovered]);
   return (
     <div
+      key={key}
       ref={teamCardRef}
       className={
         isMobile || isTouchDevice
           ? "bg-white rounded-2xl shadow-lg overflow-hidden w-70 transition duration-700 " +
-            (isUncovered && "scale-105 -translate-y-5")
+            (isUncovered && "scale-105 -translate-y-5 z-500")
           : "group bg-white rounded-2xl shadow-lg overflow-hidden w-70 transition duration-700 hover:scale-103 hover:-translate-y-5"
       }
     >
@@ -71,7 +73,7 @@ export const TeamMemberCard = ({
               : "text-sm text-gray-500 line-clamp-2 max-h-12 transition-all duration-700 ease-in-out group-hover:line-clamp-none group-hover:max-h-100"
           }
         >
-          <ul className="max-w-md space-y-1 list-disc list-inside">
+          <ul className="max-w-md space-y-1 list-disc list-inside !text-left">
             {description.map((line, i) => (
               <li key={i}>{line}</li>
             ))}

@@ -37,7 +37,7 @@ const LeftArrow = ({ style, className, onClick }: any) => (
 
 export default function NewsSlider(props: { news: SliderProps }) {
   const news = props.news;
-  const sliderRef = useRef<Slider>(null);
+  const sliderRef = useRef<Slider | null>(null);
 
   const [slidesToShow, setSlidesToShow] = useState(3);
   const [showArrows, setShowArrows] = useState(true);
@@ -81,6 +81,25 @@ export default function NewsSlider(props: { news: SliderProps }) {
     swipe: true,
     nextArrow: <RightArrow />,
     prevArrow: <LeftArrow />,
+    ...(!showArrows && {
+      appendDots: (dots: any) => (
+        <div className="bottom-0">
+          <ul className="flex items-center justify-center">
+            <LeftArrow
+              onClick={() => {
+                sliderRef.current?.slickPrev();
+              }}
+            />
+            {dots}
+            <RightArrow
+              onClick={() => {
+                sliderRef.current?.slickNext();
+              }}
+            />
+          </ul>
+        </div>
+      ),
+    }),
   };
 
   return (

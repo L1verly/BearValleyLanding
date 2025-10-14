@@ -65,7 +65,7 @@ const NewsCard = ({
           ref={newsCardRef}
           className={
             "text-sm text-gray-500 line-clamp-2 max-h-12 transition-all duration-700 ease-in-out " +
-            (isUncovered && "line-clamp-none max-h-100 hover:text-gray-700")
+            (isUncovered && "line-clamp-none max-h-100")
           }
         >
           {typeof description === "string"
