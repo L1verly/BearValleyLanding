@@ -42,23 +42,6 @@ export default function NewsSlider(props: { news: SliderProps }) {
   const [slidesToShow, setSlidesToShow] = useState(3);
   const [showArrows, setShowArrows] = useState(true);
 
-  const [sliderHeight, setSliderHeight] = useState<number>(0);
-
-  const calculateAndSetHeight = () => {
-    requestAnimationFrame(() => {
-      if (sliderRef.current) {
-        const sliderElement = (sliderRef.current as any).innerSlider.list;
-        const activeSlides = sliderElement.querySelectorAll(".slick-active");
-        let maxHeight = 0;
-        activeSlides.forEach((slide: Element) => {
-          if ((slide as HTMLElement).offsetHeight > maxHeight) {
-            maxHeight = (slide as HTMLElement).offsetHeight;
-          }
-        });
-        setSliderHeight(maxHeight);
-      }
-    });
-  };
   // Effect to update slidesToShow on component mount and window resize
   useEffect(() => {
     const handleResize = () => {
@@ -98,24 +81,10 @@ export default function NewsSlider(props: { news: SliderProps }) {
     swipe: true,
     nextArrow: <RightArrow />,
     prevArrow: <LeftArrow />,
-    onInit: () => calculateAndSetHeight(),
-    onReInit: () => calculateAndSetHeight(),
-    afterChange: () => calculateAndSetHeight(),
-    beforeChange: () => calculateAndSetHeight(),
   };
 
   return (
     <div className="sm:w-10/12 w-full 2xl:max-w-7xl lg:max-w-6xl md:max-w-5xl sm:max-w-4xl">
-      <style>
-        {`
-          .slick-list {
-            transition: height 0.2s ease !important;
-            height: ${
-              sliderHeight > 0 ? `${sliderHeight}px` : "auto"
-            } !important;
-          }
-        `}
-      </style>
       <div className="slider-container">
         <Slider {...settings} ref={sliderRef}>
           {news.map((i, index) => (
