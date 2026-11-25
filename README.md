@@ -1,52 +1,73 @@
-# Astro Starter Kit: Basics
+# Bear Valley Bible Institute Ukraine — Landing Page
 
-```sh
-npm create astro@latest -- --template basics
+Source code for the official landing page of Bear Valley Bible Institute Ukraine (BVBIU), live at **[bvbiu.com](https://bvbiu.com)**.
+
+The site is a single-page, Ukrainian-language website that introduces the institute's mission (training preachers, evangelists, missionaries and youth ministers), shares news, presents the team, and links to donations and video content.
+
+## Tech Stack
+
+- [Astro](https://astro.build/) 5 — static-first site framework
+- [React](https://react.dev/) (via `@astrojs/react`) — interactive components (nav bar, news slider, buttons)
+- [Tailwind CSS](https://tailwindcss.com/) 4 (via `@tailwindcss/vite`) — styling
+- [react-slick](https://react-slick.neostack.com/) / slick-carousel — news carousel
+- [Netlify adapter](https://docs.astro.build/en/guides/integrations-guide/netlify/) (`@astrojs/netlify`) — deployment
+
+## Getting Started
+
+Requirements: Node.js 18.20+ (or 20+) and npm.
+
+```bash
+npm install
+npm run dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+The dev server runs at `http://localhost:4321`.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### Scripts
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+| Command           | Action                                      |
+| :---------------- | :------------------------------------------ |
+| `npm run dev`     | Start the local dev server                  |
+| `npm run build`   | Build the production site to `./dist/`      |
+| `npm run preview` | Preview the production build locally        |
+| `npm run astro`   | Run Astro CLI commands (e.g. `astro check`) |
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Project Structure
 
 ```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
+├── public/                 # Favicons, web manifest (served as-is)
+├── src/
+│   ├── assets/             # Logos, news images, team photos
+│   │   ├── news/
+│   │   └── teamMembers/
+│   ├── components/         # Page sections and UI pieces
+│   │   ├── Buttons/        # Button, PrimaryButton, SecondaryButton
+│   │   ├── Hero.astro      # Mission statement
+│   │   ├── News.astro      # News section (NewsSlider / NewsCard)
+│   │   ├── Team.astro      # Team section (TeamMemberCard)
+│   │   ├── Donations.astro # Donation call to action
+│   │   ├── Youtube.astro   # Video section
+│   │   ├── Navigation.astro / NavBar.tsx / NavLink.tsx
+│   │   └── Footer.astro
+│   ├── layouts/Layout.astro
+│   └── pages/index.astro   # The single page, composing all sections
+├── astro.config.mjs
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Updating Content
 
-## 🧞 Commands
+- **News:** add the image to `src/assets/news/` and add an entry in `src/components/News.astro`.
+- **Team:** add a photo to `src/assets/teamMembers/` and add the member in `src/components/Team.astro`.
+- **Donation link:** edit the button `href` in `src/components/Donations.astro`.
 
-All commands are run from the root of the project, from a terminal:
+## Deployment
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+The site is deployed to Netlify at [bvbiu.com](https://bvbiu.com) using the Astro Netlify adapter.
 
-## 👀 Want to learn more?
+Netlify settings:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- **Build command:** `npm run build`
+- **Publish directory:** `dist`
+
+Pushes to the connected branch trigger a new deploy.
